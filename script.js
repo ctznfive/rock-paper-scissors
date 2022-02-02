@@ -32,6 +32,32 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-const playerSelection = "rock";
-const computerSelection = computerPlay();
-console.log(playRound(playerSelection, computerSelection));
+function printScore(score) {
+    if (score > 0) return "You're a winner!";
+    else if (score < 0) return "You're a loser!";
+    else return "It's a Draw!";
+}
+
+function calcScore(result) {
+    if (result.includes("Win")) return 1;
+    else if (result.includes("Lose")) return -1;
+    else return 0;
+}
+
+function game() {
+    let score = 0;
+
+    for (let i = 0; i < 5; i++) {
+        const playerSelection = window.prompt("What do you choose?",
+         "Rock, Paper or Scissors");
+        const computerSelection = computerPlay();
+        const result = playRound(playerSelection, computerSelection)
+        console.log(result);
+
+        score += calcScore(result);
+    }
+
+    console.log(printScore(score));
+}
+
+game();
