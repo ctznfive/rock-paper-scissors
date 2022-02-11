@@ -32,16 +32,16 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function printScore(score) {
-    if (score > 0) return "You're a winner!";
-    else if (score < 0) return "You're a loser!";
-    else return "It's a Draw!";
-}
-
 function calcScore(result) {
     if (result.includes("Win")) return 1;
     else if (result.includes("Lose")) return -1;
     else return 0;
+}
+
+function printScore(score) {
+    if (score > 0) return "You're a winner!";
+    else if (score < 0) return "You're a loser!";
+    else return "It's a Draw!";
 }
 
 function game() {
